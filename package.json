@@ -1,6 +1,6 @@
 {
   "name": "asdi-frontend",
-  "version": "1.22.0",
+  "version": "1.23.0-dev",
   "description": "Frontend for Arctic-SDI geoportal based on Oskari. Site visible in geoportal.arctic-sdi.org.",
   "keywords": [
     "Oskari"
