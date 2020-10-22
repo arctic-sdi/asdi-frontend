@@ -1,12 +1,3 @@
-
-Oskari.registerLocalization(
-{
-    "lang": "fr",
-    "key": "Search",
-    "value": {
-        "searchDescription": "Rechercher un lieu par nom de lieu."
-    }
-}, true);
 Oskari.registerLocalization(
 {
     "lang": "fr",
