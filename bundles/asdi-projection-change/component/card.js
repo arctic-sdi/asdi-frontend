@@ -47,7 +47,7 @@ Oskari.clazz.define('Oskari.projection.change.component.card',
         },
         getImagePath: function (epsg) {
             var name = epsg.replace(':', '');
-            return '/Oskari/bundles/asdi/asdi-projection-change/resources/images/' + name + '.png';
+            return '/Oskari/bundles/asdi-projection-change/resources/images/' + name + '.png';
         },
         getUnsupportedLayers: function () {
             var me = this;
