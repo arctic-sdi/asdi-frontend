@@ -1,6 +1,6 @@
 Oskari.clazz.define('Oskari.projection.change.component.card',
 /**
- * @class 
+ * @class
  * @param { Object } view - contains info about the current view passed down to card
  * @param function() callback - callback function to call when element is clicked
  */

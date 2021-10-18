@@ -4,7 +4,7 @@
 Oskari.clazz.define('Oskari.asdi.login.BundleInstance',
     function () {
         this.templates = {
-            'loginButton': jQuery('<input id="loginbutton" type="submit" value="">')
+            loginButton: jQuery('<input id="loginbutton" type="submit" value="">')
         };
     }, {
         __name: 'asdi-login',
@@ -40,7 +40,7 @@ Oskari.clazz.define('Oskari.asdi.login.BundleInstance',
                 'userinterface.UpdateExtensionRequest', [this, 'attach']
             );
         },
-         /**
+        /**
          * @static
          * @property __guidedTourDelegateTemplate
          * Delegate object given to guided tour bundle instance. Handles content & actions of guided tour popup.
@@ -63,7 +63,7 @@ Oskari.clazz.define('Oskari.asdi.login.BundleInstance',
                 return content;
             },
             getLinks: function () {
-                 // No links to show
+                // No links to show
                 return [];
             },
             getPositionRef: function () {
@@ -107,6 +107,6 @@ Oskari.clazz.define('Oskari.asdi.login.BundleInstance',
             }
         }
     }, {
-        'extend': ['Oskari.userinterface.extension.DefaultExtension']
+        extend: ['Oskari.userinterface.extension.DefaultExtension']
     }
 );

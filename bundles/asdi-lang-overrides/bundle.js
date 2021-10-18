@@ -8,41 +8,41 @@
         }
     }
     appSetup.startupSequence.unshift(obj);
-    
+
  * @class Oskari.asdi.lang.overrides.Bundle
  */
-Oskari.clazz.define("Oskari.asdi.lang.overrides", function() {
+Oskari.clazz.define('Oskari.asdi.lang.overrides', function () {
 
 }, {
-    "create" : function() {
+    create: function () {
         return this;
     },
-    "start": function() {},
-    "stop": function() {}
+    start: function () {},
+    stop: function () {}
 }, {
-    "source" : {
-        "scripts" : [],
-        "locales" : [
+    source: {
+        scripts: [],
+        locales: [
             {
-                "lang": "en",
-                "type": "text/javascript",
-                "src": "./resources/locale/en.js"
+                lang: 'en',
+                type: 'text/javascript',
+                src: './resources/locale/en.js'
             },
             {
-                "lang": "fi",
-                "type": "text/javascript",
-                "src": "./resources/locale/fi.js"
-            },            {
-                "lang": "sv",
-                "type": "text/javascript",
-                "src": "./resources/locale/sv.js"
-            },            {
-                "lang": "fr",
-                "type": "text/javascript",
-                "src": "./resources/locale/fr.js"
+                lang: 'fi',
+                type: 'text/javascript',
+                src: './resources/locale/fi.js'
+            }, {
+                lang: 'sv',
+                type: 'text/javascript',
+                src: './resources/locale/sv.js'
+            }, {
+                lang: 'fr',
+                type: 'text/javascript',
+                src: './resources/locale/fr.js'
             }
         ]
     }
 });
 
-Oskari.bundle_manager.installBundleClass("asdi-lang-overrides", "Oskari.asdi.lang.overrides");
+Oskari.bundle_manager.installBundleClass('asdi-lang-overrides', 'Oskari.asdi.lang.overrides');
