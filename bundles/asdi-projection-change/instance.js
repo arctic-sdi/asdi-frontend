@@ -1,7 +1,7 @@
 const UnsupportedLayerSrs = Oskari.clazz.get('Oskari.mapframework.domain.UnsupportedLayerSrs');
 /**
  * @class Oskari.projection.change.instance
- * 
+ *
  *      var obj = {
             "bundlename":"asdi-projection-change"
         }
@@ -55,7 +55,7 @@ Oskari.clazz.define('Oskari.projection.change.instance',
         getAppViews: function () {
             return Oskari.app.getSystemDefaultViews();
         },
-        _overrideUnsupportedLayerActions(){
+        _overrideUnsupportedLayerActions () {
             const srs = new UnsupportedLayerSrs();
             srs.setAction(() => this.plugin.getFlyout().show());
             srs.setActionText(this.loc.changeProjection);

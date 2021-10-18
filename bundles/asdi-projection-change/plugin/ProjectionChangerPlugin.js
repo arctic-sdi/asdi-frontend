@@ -47,7 +47,7 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
    */
         _createEventHandlers: function () {
             return {
-                'MapSizeChangedEvent': function (evt) {
+                MapSizeChangedEvent: function (evt) {
                     var width = evt._width;
                     // if the rightoffset + element width is greater than screensize use a different right offset
                     if (width * 0.45 + this._flyout.getElement().width() > width) {
@@ -128,8 +128,8 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
             this.teardownUI(true);
         }
     }, {
-        'extend': ['Oskari.mapping.mapmodule.plugin.BasicMapModulePlugin'],
-        'protocol': [
+        extend: ['Oskari.mapping.mapmodule.plugin.BasicMapModulePlugin'],
+        protocol: [
             'Oskari.mapframework.module.Module',
             'Oskari.mapframework.ui.module.common.mapmodule.Plugin'
         ]

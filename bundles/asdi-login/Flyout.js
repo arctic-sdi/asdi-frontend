@@ -44,13 +44,13 @@ Oskari.clazz.define('Oskari.asdi.login.Flyout',
             return 'Oskari.asdi.login.Flyout';
         },
         startPlugin: function () {
-            var me = this,
-                el = me.getEl(),
-                template = this._templates.content.clone(),
-                username = template.find('#username'),
-                password = template.find('#password'),
-                submit = template.find('#submit'),
-                cancel = template.find('#cancel');
+            var me = this;
+            var el = me.getEl();
+            var template = this._templates.content.clone();
+            var username = template.find('#username');
+            var password = template.find('#password');
+            var submit = template.find('#submit');
+            var cancel = template.find('#cancel');
 
             username.attr('placeholder', this.locale.username);
             password.attr('placeholder', this.locale.password);
@@ -66,14 +66,14 @@ Oskari.clazz.define('Oskari.asdi.login.Flyout',
             el.append(template);
         },
         onOpen: function () {
-            var me = this,
-                shade = me._templates.backgroundShade.clone(),
-                flyoutContainer = me.getEl().parent().parent(),
-                shadeZIndex = parseInt(flyoutContainer.css('z-index')) - 1;
-            var containerWidth = jQuery(flyoutContainer).width(),
-                containerHeight = jQuery(flyoutContainer).height(),
-                windowWidth = jQuery(window).width(),
-                windowHeight = jQuery(window).height();
+            var me = this;
+            var shade = me._templates.backgroundShade.clone();
+            var flyoutContainer = me.getEl().parent().parent();
+            var shadeZIndex = parseInt(flyoutContainer.css('z-index')) - 1;
+            var containerWidth = jQuery(flyoutContainer).width();
+            var containerHeight = jQuery(flyoutContainer).height();
+            var windowWidth = jQuery(window).width();
+            var windowHeight = jQuery(window).height();
 
             var left = ((parseInt(windowWidth) / 2) - (parseInt(containerWidth) / 2));
             var top = ((parseInt(windowHeight) / 2) - (parseInt(containerHeight) / 2));
@@ -89,6 +89,6 @@ Oskari.clazz.define('Oskari.asdi.login.Flyout',
             jQuery('body').find('.asdiLoginFlyoutBackground').remove();
         }
     }, {
-        'extend': ['Oskari.userinterface.extension.DefaultFlyout']
+        extend: ['Oskari.userinterface.extension.DefaultFlyout']
     }
 );

@@ -77,6 +77,6 @@ Oskari.clazz.define('Oskari.asdi.logo.BundleInstance',
         }
 
     }, {
-        'extend': ['Oskari.userinterface.extension.DefaultExtension']
+        extend: ['Oskari.userinterface.extension.DefaultExtension']
     }
 );

@@ -15,5 +15,5 @@ Oskari.clazz.define('Oskari.projection.change.flyout', function (params, options
         return this.getElement().find('.oskari-map-projection').length > 0;
     }
 }, {
-    'extend': ['Oskari.userinterface.extension.ExtraFlyout']
+    extend: ['Oskari.userinterface.extension.ExtraFlyout']
 });
