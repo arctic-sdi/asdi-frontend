@@ -1,12 +1,12 @@
 table td {
-	text-align: left;
-	vertical-align: top;
+    text-align: left;
+    vertical-align: top;
 }
 #contentMap {
     margin-left: 170px;
 }
 table {
-	border-top-width: 0px;
+    border-top-width: 0px;
 }
 @media screen {
     div.search input[type=button] {
@@ -36,14 +36,25 @@ table {
         height: 100%;
     }
 
-    img.panbuttonDivImg {        border: 0;
+    img.panbuttonDivImg {
+        border: 0;
     }
 
    .oskari-tile {
         background: rgb(147, 187, 218) !important;
-		height: auto !important;
-		min-height: 31px !important;
+        height: auto !important;
+        min-height: 31px !important;
         line-height: 15px !important;
+    }
+    .oskari-tile-closed div.oskari-tile-title {
+        color: black;
+    }
+    div.oskari-tile-closed:hover {
+        background-color: #009fe3 !important;
+        color: white !important;
+    }
+    div.oskari-tile-closed:hover div.oskari-tile-title {
+        color: white !important;
     }
     .oskari-tile-closed {
         background-color: white !important;
@@ -52,48 +63,54 @@ table {
     }
 
     .oskari-tile-attached {
-        background-color: #2d2d2d !important;
+        /*background-color: #2d2d2d !important;*/
         border-bottom: 1px solid white !important;
         border-top: 1px solid rgb(204, 236, 249) !important;
     }
-
+    div.oskari-tile.statsgrid div.statsgrid-functionality div.oskari-tile-title, div.oskari-tile.statsgrid div.statsgrid-functionality div.text {
+        color: black;
+    }
+    div.oskari-tile.statsgrid .statsgrid-functionality.material-selected .icon {
+        background-color: #009fe3;
+    }
+/*
     .oskari-tile-attached .oskari-tile-title {
-		color: white !important;
-	}
+        color: white !important;
+    }
+    .oskari-tile-closed .oskari-tile-title {
+        color: black !important;
+    }
 
-	.oskari-tile-closed .oskari-tile-title {
-		color: black !important;
-	}
-
+*/
     .oskari-flyout-title {
         color: white !important;
     }
 
     .oskari-flyouttoolbar {
-    	background-color: rgb(0, 159, 227) !important;
-		background-position: -170px -23px !important;
+        background-color: rgb(0, 159, 227) !important;
+        background-position: -170px -23px !important;
         background-repeat: no-repeat;
     }
 
     .oskari-flyoutheading {
-		background-color: rgb(12, 60, 98) !important;
-		border-top: 0px !important;
-		border-bottom: 0px !important;
-		height: 14px !important;
-		width: 100% !important;
-	}
+        background-color: rgb(12, 60, 98) !important;
+        border-top: 0px !important;
+        border-bottom: 0px !important;
+        height: 14px !important;
+        width: 100% !important;
+    }
 
-	.oskari-flyoutcontent {
-		background-color: white !important;
-	}
+    .oskari-flyoutcontent {
+        background-color: white !important;
+    }
 
     #logobar {
         height: 152px;
         overflow: hidden;
         background-image: url('asdi_logo.png');
-		background-repeat: no-repeat;
-		background-origin: content-box;
-		background-position: 0px 8px;
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-position: 0px 8px;
     }
 
 
@@ -109,34 +126,34 @@ table {
         margin: 0px !important;
     }
 
-	div.layerselection2 .layer.selected div.layer-tools {
-		background-color: white !important;
-		padding: 7px !important;
-	}
+    div.layerselection2 .layer.selected div.layer-tools {
+        background-color: white !important;
+        padding: 7px !important;
+    }
 
-	div.layerselection2 .layer.selected {
-		border: 1pt solid #c0d0e0;
-		margin: 0 5px 5px 0;
-		padding: 5px !important;
-		border-radius: 5px !important;
-		background-color: white !important;
-	}
+    div.layerselection2 .layer.selected {
+        border: 1pt solid #c0d0e0;
+        margin: 0 5px 5px 0;
+        padding: 5px !important;
+        border-radius: 5px !important;
+        background-color: white !important;
+    }
 
-	div.layer-info div.layer-title h4 {
-		font-size: 15px !important;
-		line-height: 22px !important;
-	}
+    div.layer-info div.layer-title h4 {
+        font-size: 15px !important;
+        line-height: 22px !important;
+    }
 
-	    body {
+    body {
         margin: 0;
         padding: 0;
         height: 100%;
         font: 14px "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
     }
 
-	.search .resultList div h3 {
-		font-size: 14px;
-	}
+    .search .resultList div h3 {
+        font-size: 14px;
+    }
 }
 
 .layer-backendstatus-icon{
@@ -185,46 +202,6 @@ div.oskari-tile.statsgrid  div.statsgrid-functionality {
     color: white;
 }
 
-/**
- * Use the light icons as defaults
- */
-/*
-.tool-history-back {
-    background-position: -3382px 0px !important;
-}
-
-.tool-history-forward {
-    background-position: -3446px 0px !important;
-}
-
-.tool-measure-area {
-    background-position: -3510px 0px !important;
-}
-
-.tool-measure-line {
-    background-position: -3574px 0px !important;
-}
-
-.tool-reset {
-    background-position: -2520px 0px !important;
-}
-
-.tool-save-view {
-    background-position: -2584px 0px !important;
-}
-
-.tool-zoombox {
-    background-position: -3638px 0px !important;
-}
-
-.upload-material {
-    background-position: -2680px 0px !important;
-}
-
-.tool-link {
-    background-position: -2328px 0px !important;
-}
-*/
 
 /**
  * login flyout
@@ -264,8 +241,8 @@ select.oskari-language-selector {
 
 div.mapplugin.indexmap .indexmapToggle[class$=-default] div.icon,
 div.mapplugin.indexmap .indexmapToggle[class$=-dark] div.icon {
-	background-image: url('northpole_dark.svg') !important;
+    background-image: url('northpole_dark.svg') !important;
 }
 div.mapplugin.indexmap .indexmapToggle[class$=-light] div.icon {
-	background-image: url('northpole_light.svg') !important;
+    background-image: url('northpole_light.svg') !important;
 }
