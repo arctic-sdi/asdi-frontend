@@ -6,7 +6,7 @@
     "Oskari"
   ],
   "dependencies": {
-    "oskari-frontend": "git+https://git@github.com/oskariorg/oskari-frontend.git#2.6.0"
+    "oskari-frontend": "https://github.com/oskariorg/oskari-frontend.git#2.7.0"
   },
   "scripts": {
     "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
