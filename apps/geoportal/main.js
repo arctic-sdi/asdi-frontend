@@ -23,7 +23,7 @@ import 'oskari-loader!oskari-frontend/packages/catalogue/bundle/metadataflyout/b
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/coordinatetool/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/postprocessor/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/statehandler/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/framework/bundle/personaldata/bundle.js';
+import 'oskari-loader!oskari-frontend/bundles/framework/mydata/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/publisher2/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/maplegend/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/mapping/ol/layerswipe/bundle.js';
