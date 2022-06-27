@@ -1,12 +1,12 @@
 {
   "name": "asdi-frontend",
-  "version": "1.24.0",
+  "version": "1.25.0-dev",
   "description": "Frontend for Arctic-SDI geoportal based on Oskari. Site visible in geoportal.arctic-sdi.org.",
   "keywords": [
     "Oskari"
   ],
   "dependencies": {
-    "oskari-frontend": "https://github.com/oskariorg/oskari-frontend.git#2.8.0"
+    "oskari-frontend": "https://github.com/oskariorg/oskari-frontend.git#develop"
   },
   "scripts": {
     "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
