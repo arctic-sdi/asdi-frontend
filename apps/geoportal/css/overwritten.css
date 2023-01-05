@@ -226,17 +226,12 @@ select.oskari-language-selector {
 }
 
 /**
- * logoplugin with asdi logo
+ * logoplugin with asdi logo is not 25x25px
+ * logo png comes form
  */
-.logoplugin .icon {
-    background-image: url('asdi_logoplugin_logo.png') !important;
+.logoplugin .logo {
     width: 23px !important;
     height: 27px !important;
-    float: left;
-}
-
-.logoplugin .data-sources, .logoplugin .terms {
-    float: left;
 }
 
 div.mapplugin.indexmap .indexmapToggle[class$=-default] div.icon,
