@@ -1,98 +1,123 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { MapModuleButton } from 'oskari-frontend/bundles/mapping/mapmodule/MapModuleButton';
+import { GlobalOutlined } from '@ant-design/icons';
+import { showProjectionChangePopup } from './ProjectionChangePopup';
+import { showProjectionPopup } from './ProjectionCard';
+
 Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
     function (options, localization) {
         this.options = options || {};
         this._clazz = 'Oskari.projection.change.ProjectionChangerPlugin';
         this._defaultLocation = 'top right';
         this._index = 55;
-        this.offsetRight = '45%';
-        this.offsetRightSmallScreen = '20%';
-        this.offsetTop = '30%';
-        this.mobileOffsetRight = '30%';
-        this.mobileOffsetTop = '13%';
         this._templates = {
             projectionchanger: jQuery('<div class="mapplugin oskari-projection-changer"></div>')
         };
         this._loc = localization;
-
-        this._flyout = Oskari.clazz.create('Oskari.projection.change.flyout', options, {
-            width: 'auto',
-            cls: 'projection-change-flyout'
-        });
-        this._flyout.makeDraggable();
-        this._flyout.hide();
-        var me = this;
-        this._mobileDefs = {
-            buttons: {
-                'mobile-projectionchange': {
-                    iconCls: 'mobile-projection',
-                    tooltip: '',
-                    show: false,
-                    callback: function () {
-                        me._flyout.toggle();
-                        if (!me._flyout.isVisible()) {
-                            me.mobilePluginOnClose();
-                        }
-                    },
-                    sticky: true,
-                    toggleChangeIcon: true
-                }
-            },
-            buttonGroup: 'mobile-toolbar'
-        };
         this._log = Oskari.log('Oskari.projection.change.ProjectionChangerPlugin');
+        this.popupControls = null;
+        this.projectionCard = null;
     }, {
-    /**
-   * Create event handlers.
-   * @method @private _createEventHandlers
-   */
-        _createEventHandlers: function () {
-            return {
-                MapSizeChangedEvent: function (evt) {
-                    var width = evt._width;
-                    // if the rightoffset + element width is greater than screensize use a different right offset
-                    if (width * 0.45 + this._flyout.getElement().width() > width) {
-                        this._flyout.move(this.offsetRightSmallScreen, this.offsetTop, true);
-                        return;
-                    }
-                    if (!Oskari.util.isMobile()) {
-                        this._flyout.move(this.offsetRight, this.offsetTop, true);
-                    }
-                }
-            };
+        popupCleanup: function () {
+            if (this.popupControls) {
+                this.popupControls.close();
+            }
+            this.popupControls = null;
+            this.renderButton();
         },
-        mobilePluginOnClose: function () {
-            this._resetMobileIcon(this.getElement(), this._mobileDefs.buttons['mobile-projectionchange'].iconCls);
+        cardCleanup: function () {
+            if (this.projectionCard) {
+                this.projectionCard.close();
+            }
+            this.projectionCard = null;
+        },
+        showPopup: function () {
+            if (!this.popupControls) {
+                this.popupControls = showProjectionChangePopup(
+                    this.options.views,
+                    (uuid, srsName) => this.changeProjection(uuid, srsName),
+                    Oskari.getSandbox().getMap().getSrsName(),
+                    (imgUrl, srsName) => this.showCard(imgUrl, srsName),
+                    () => this.popupCleanup()
+                );
+            } else {
+                this.popupCleanup();
+            }
+            this.renderButton();
+        },
+        showCard: function (imgUrl, srsName) {
+            if (this.projectionCard) {
+                this.cardCleanup();
+            }
+            this.projectionCard = showProjectionPopup(imgUrl, srsName, () => this.cardCleanup());
+        },
+        /**
+         * @method changeProjection
+         * @description reloads the page with a new uuid
+         */
+        changeProjection: function (uuid, srs) {
+            if (!uuid) {
+                return;
+            }
+            let url = window.location.origin;
+            if (window.location.pathname && window.location.pathname.length) {
+                url += window.location.pathname;
+            }
+            url += '?uuid=' + uuid;
+            url += this.getSelectedMapLayersUrlParam();
+
+            window.location.href = url;
+        },
+        getSelectedMapLayersUrlParam: function () {
+            let maplayerUrlString = '&mapLayers=';
+            let layerString = '';
+            let layers = this.options.sb.getMap().getLayers();
+
+            if (layers.length === 0) {
+                return;
+            }
+            layers.forEach((layer) => {
+                if (layerString !== '') {
+                    layerString += ',';
+                }
+                layerString += layer._id + '+' + layer._opacity;
+                if (layer.style) {
+                    layerString += '+' + layer.style;
+                } else {
+                    layerString += '+';
+                }
+            });
+            maplayerUrlString += layerString;
+            return maplayerUrlString;
         },
         _createControlElement: function () {
-            var launcher = this._templates.projectionchanger.clone();
-            launcher.attr('title', this._loc.tooltip.tool);
-            return launcher;
+            return this._templates.projectionchanger.clone();
+        },
+        renderButton: function (element) {
+            let el = element;
+            if (!element) {
+                el = this.getElement();
+            };
+            if (!el) return;
+            ReactDOM.render(
+                <MapModuleButton
+                    icon={<GlobalOutlined />}
+                    iconSize='24px'
+                    onClick={() => this.showPopup()}
+                    iconActive={!!this.popupControls}
+                    title={this._loc.tooltip.tool}
+                />,
+                el[0]
+            );
         },
         createUi: function () {
             if (this.getElement()) {
                 return;
             }
-            this._flyout.off('hide');
             this._element = this._createControlElement();
-            this.handleEvents();
+            this.renderButton(this._element);
             this.addToPluginContainer(this._element);
-        },
-        createMobileUi: function () {
-            var me = this;
-            var mobileDefs = this.getMobileDefs();
-            this.addToolbarButtons(mobileDefs.buttons, mobileDefs.buttonGroup);
-            this._element = jQuery('.' + mobileDefs.buttons['mobile-projectionchange'].iconCls);
-            this._flyout.move(this.mobileOffsetRight, this.mobileOffsetTop, true);
-            this._flyout.on('hide', function () {
-                me.mobilePluginOnClose();
-            });
-        },
-        handleEvents: function () {
-            var me = this;
-            this._flyout.move(this.offsetRight, this.offsetTop, true);
-            this.getElement().on('click', function () {
-                me._flyout.toggle();
-            });
         },
         /**
      * Handle plugin UI and change it when desktop / mobile mode
@@ -101,28 +126,18 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
      * @param {Boolean} forced application has started and ui should be rendered with assets that are available
      */
         redrawUI: function () {
-            var isMobile = Oskari.util.isMobile();
             if (this.getElement()) {
                 this.teardownUI(true);
             }
-            if (isMobile) {
-                this.createMobileUi();
-            } else {
-                this.createUi();
-            }
+            this.createUi();
         },
         teardownUI: function (stopping) {
             // detach old element from screen
-            var mobileDefs = this.getMobileDefs();
             this.getElement().detach();
             this.removeFromPluginContainer(this.getElement());
-            this.removeToolbarButtons(mobileDefs.buttons, mobileDefs.buttonGroup);
         },
         getElement: function () {
             return this._element;
-        },
-        getFlyout: function () {
-            return this._flyout;
         },
         stopPlugin: function () {
             this.teardownUI(true);

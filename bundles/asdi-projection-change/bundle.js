@@ -20,22 +20,7 @@ Oskari.clazz.define('Oskari.projection.change', function () {
                 src: './instance.js'
             }, {
                 type: 'text/javascript',
-                src: './Flyout.js'
-            }, {
-                type: 'text/javascript',
-                src: './view/ProjectionChange.js'
-            }, {
-                type: 'text/javascript',
-                src: './view/ErrorListing.js'
-            }, {
-                type: 'text/javascript',
-                src: './view/ProjectionInformation.js'
-            }, {
-                type: 'text/javascript',
                 src: './plugin/ProjectionChangerPlugin.js'
-            }, {
-                type: 'text/javascript',
-                src: './component/card.js'
             }, {
                 type: 'text/css',
                 src: './resources/css/style.css'
