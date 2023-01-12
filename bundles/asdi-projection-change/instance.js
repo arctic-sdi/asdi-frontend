@@ -46,18 +46,14 @@ Oskari.clazz.define('Oskari.projection.change.instance',
             this.plugin = null;
         },
         createUi: function () {
-            if (Oskari.util.isMobile()) {
-                this.plugin.createMobileUi();
-            } else {
-                this.plugin.createUi();
-            }
+            this.plugin.createUi();
         },
         getAppViews: function () {
             return Oskari.app.getSystemDefaultViews();
         },
         _overrideUnsupportedLayerActions () {
             const srs = new UnsupportedLayerSrs();
-            srs.setAction(() => this.plugin.getFlyout().show());
+            srs.setAction(() => this.plugin.showPopup());
             srs.setActionText(this.loc.changeProjection);
             this.sandbox.getMap().addLayerSupportCheck(srs);
         }
