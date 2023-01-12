@@ -50,7 +50,7 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
             if (this.projectionCard) {
                 this.cardCleanup();
             }
-            this.projectionCard = showProjectionPopup(imgUrl, srsName,() => this.cardCleanup());
+            this.projectionCard = showProjectionPopup(imgUrl, srsName, () => this.cardCleanup());
         },
         /**
          * @method changeProjection
@@ -108,7 +108,7 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
                     iconActive={!!this.popupControls}
                     title={this._loc.tooltip.tool}
                 />,
-                el[0]  
+                el[0]
             );
         },
         createUi: function () {
