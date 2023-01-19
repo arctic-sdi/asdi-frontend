@@ -53,11 +53,3 @@ import 'oskari-lazy-loader?statsgrid!oskari-frontend/packages/statistics/statsgr
 import 'oskari-lazy-loader?admin-layeranalytics!oskari-frontend/bundles/admin/admin-layeranalytics/bundle.js';
 
 import './css/overwritten.css';
-
-Oskari.app.getTheming().setTheme({
-    color: {
-        icon: '#FFFFFF',
-        accent: '#0c3c62',
-        primary: '#009fe3'
-    }
-});
