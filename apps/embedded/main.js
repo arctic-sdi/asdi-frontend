@@ -20,5 +20,6 @@ import 'oskari-loader!oskari-frontend/packages/framework/bundle/timeseries/bundl
 import 'oskari-lazy-loader?maplegend!oskari-frontend/packages/framework/bundle/maplegend/bundle.js';
 import 'oskari-lazy-loader?statsgrid!oskari-frontend/packages/statistics/statsgrid/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/rpc/bundle.js';
+import 'oskari-lazy-loader?layerswipe!oskari-frontend/packages/mapping/ol/layerswipe/bundle.js';
 
 import './css/overwritten.css';
