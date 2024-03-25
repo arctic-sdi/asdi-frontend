@@ -3,7 +3,8 @@ import { showPopup } from 'oskari-ui/components/window';
 import styled from 'styled-components';
 import { Message, Confirm } from 'oskari-ui';
 import { InfoIcon } from 'oskari-ui/components/icons';
-import { WarningIcon } from 'oskari-ui'
+import { WarningIcon } from 'oskari-ui';
+import { ThemeProvider } from 'oskari-ui/util';
 
 const BUNDLE_KEY = 'projection-change';
 
@@ -58,40 +59,42 @@ const checkSupported = (srsName) => {
 
 const PopupContent = ({ views, changeView, currentView, showDescription }) => {
     return (
-        <ViewsContainer>
-            {views?.map(view => (
-                <View key={view.srsName}>
-                    <ViewImage onClick={() => changeView(view.uuid, view.srsName)} src={getImageUrl(view.srsName)} active={currentView === view.srsName} />
-                    <ViewText>
-                        <Message bundleKey={BUNDLE_KEY} messageKey={`projectionCode.${view.srsName}.displayName`} />
-                        <Info
-                            onClick={() => showDescription(getImageUrl(view.srsName), view.srsName)}
-                        >
-                            <InfoIcon title={<Message bundleKey={BUNDLE_KEY} messageKey='infoPopup.title'/>} />
-                        </Info>
-                        {checkSupported(view.srsName)?.length > 0 && (
-                            <Confirm
-                                title={
-                                    <div>
-                                        <Message bundleKey={BUNDLE_KEY} messageKey='error.desc'/>
-                                        <ul className="projection-errorlist">
-                                            {checkSupported(view.srsName)?.map((unsupported, index) => (
-                                                    <li key={index}>{unsupported.getName()}</li>
-                                            ))} 
-                                        </ul>
-                                    </div>
-                                }
-                                showCancel={false}
+        <ThemeProvider>
+            <ViewsContainer>
+                {views?.map(view => (
+                    <View key={view.srsName}>
+                        <ViewImage onClick={() => changeView(view.uuid, view.srsName)} src={getImageUrl(view.srsName)} active={currentView === view.srsName} />
+                        <ViewText>
+                            <Message bundleKey={BUNDLE_KEY} messageKey={`projectionCode.${view.srsName}.displayName`} />
+                            <Info
+                                onClick={() => showDescription(getImageUrl(view.srsName), view.srsName)}
                             >
-                                <Warning>
-                                    <WarningIcon title={Oskari.getMsg(BUNDLE_KEY, 'error.hover.icon')} />
-                                </Warning>
-                            </Confirm>
-                        )}
-                    </ViewText>
-                </View>
-            ))}
-        </ViewsContainer>
+                                <InfoIcon title={<Message bundleKey={BUNDLE_KEY} messageKey='infoPopup.title'/>} />
+                            </Info>
+                            {checkSupported(view.srsName)?.length > 0 && (
+                                <Confirm
+                                    title={
+                                        <div>
+                                            <Message bundleKey={BUNDLE_KEY} messageKey='error.desc'/>
+                                            <ul className="projection-errorlist">
+                                                {checkSupported(view.srsName)?.map((unsupported, index) => (
+                                                        <li key={index}>{unsupported.getName()}</li>
+                                                ))} 
+                                            </ul>
+                                        </div>
+                                    }
+                                    showCancel={false}
+                                >
+                                    <Warning>
+                                        <WarningIcon title={Oskari.getMsg(BUNDLE_KEY, 'error.hover.icon')} />
+                                    </Warning>
+                                </Confirm>
+                            )}
+                        </ViewText>
+                    </View>
+                ))}
+            </ViewsContainer>
+        </ThemeProvider>
     );
 }
 

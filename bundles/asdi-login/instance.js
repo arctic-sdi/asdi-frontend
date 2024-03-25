@@ -1,3 +1,6 @@
+import React from 'react';
+import { Message } from 'oskari-ui';
+
 /**
  * @class Oskari.asdi.login.BundleInstance
  */
@@ -58,9 +61,7 @@ Oskari.clazz.define('Oskari.asdi.login.BundleInstance',
                 return this.locale.guidedTour.title;
             },
             getContent: function () {
-                var content = jQuery('<div></div>');
-                content.append(this.locale.guidedTour.message);
-                return content;
+                return <Message bundleKey={this.getName()} messageKey='guidedTour.message' allowHTML />;
             },
             getLinks: function () {
                 // No links to show

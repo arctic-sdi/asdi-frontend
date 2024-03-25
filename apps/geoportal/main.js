@@ -18,6 +18,8 @@ import 'oskari-loader!oskari-frontend/packages/mapping/ol/toolbar/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/mapping/ol/infobox/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/search/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/layerlist/bundle.js';
+// After improving the advanced options UI
+// import 'oskari-loader!oskari-frontend/packages/catalogue/metadatasearch/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/catalogue/metadatacatalogue/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/catalogue/bundle/metadataflyout/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/coordinatetool/bundle.js';
@@ -37,7 +39,7 @@ import 'oskari-loader!oskari-frontend/packages/framework/bundle/guidedtour/bundl
 import 'oskari-loader!../../bundles/asdi-login/bundle.js';
 import 'oskari-loader!../../bundles/asdi-projection-change/bundle.js';
 
-import 'oskari-loader!oskari-frontend/packages/framework/featuredata2/bundle.js';
+import 'oskari-loader!oskari-frontend/packages/framework/featuredata/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/userguide/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/language-selector/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/printout/bundle.js';
@@ -49,7 +51,7 @@ import 'oskari-lazy-loader?admin-layereditor!oskari-frontend/packages/admin/bund
 import 'oskari-lazy-loader?admin-layerrights!oskari-frontend/packages/framework/bundle/admin-layerrights/bundle.js';
 import 'oskari-lazy-loader?admin-users!oskari-frontend/packages/framework/bundle/admin-users/bundle.js';
 import 'oskari-lazy-loader?admin!oskari-frontend/packages/admin/bundle/admin/bundle.js';
-import 'oskari-lazy-loader?statsgrid!oskari-frontend/packages/statistics/statsgrid/bundle.js';
+import 'oskari-lazy-loader?statsgrid!oskari-frontend/bundles/statistics/statsgrid/bundle.js';
 import 'oskari-lazy-loader?admin-layeranalytics!oskari-frontend/bundles/admin/admin-layeranalytics/bundle.js';
 
 import './css/overwritten.css';
