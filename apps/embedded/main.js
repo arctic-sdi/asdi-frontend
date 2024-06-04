@@ -22,6 +22,6 @@ import 'oskari-lazy-loader?statsgrid!oskari-frontend/bundles/statistics/statsgri
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/rpc/bundle.js';
 import 'oskari-lazy-loader?layerswipe!oskari-frontend/packages/mapping/ol/layerswipe/bundle.js';
 // So someone could potentially query metadata through RPC and an embedded map:
-// import 'oskari-lazy-loader?metadatasearch!oskari-frontend/packages/catalogue/metadatasearch/bundle.js';
+import 'oskari-lazy-loader?metadatasearch!oskari-frontend/packages/catalogue/metadatasearch/bundle.js';
 
 import './css/overwritten.css';
