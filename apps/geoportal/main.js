@@ -18,9 +18,7 @@ import 'oskari-loader!oskari-frontend/packages/mapping/ol/toolbar/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/mapping/ol/infobox/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/search/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/layerlist/bundle.js';
-// After improving the advanced options UI
-// import 'oskari-loader!oskari-frontend/packages/catalogue/metadatasearch/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/catalogue/metadatacatalogue/bundle.js';
+import 'oskari-loader!oskari-frontend/packages/catalogue/metadatasearch/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/catalogue/bundle/metadataflyout/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/coordinatetool/bundle.js';
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/postprocessor/bundle.js';
