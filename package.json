@@ -1,18 +1,22 @@
 {
   "name": "asdi-frontend",
-  "version": "1.28.0-dev",
+  "version": "1.28.0",
   "description": "Frontend for Arctic-SDI geoportal based on Oskari. Site visible in geoportal.arctic-sdi.org.",
   "keywords": [
     "Oskari"
   ],
   "dependencies": {
-    "oskari-frontend": "https://github.com/oskariorg/oskari-frontend.git#develop"
+    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#2.13.2"
+  },
+  "devDependencies": {
+    "@cyclonedx/bom": "^3.10.1"
   },
   "scripts": {
     "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
     "build:dev": "node ./node_modules/oskari-frontend/node_modules/webpack/bin/webpack.js --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
     "start:dev": "node ./node_modules/oskari-frontend/node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./node_modules/oskari-frontend/webpack.config.js --hot --env.appdef=devapp:apps",
-    "test": "eslint --config ./node_modules/oskari-frontend/.eslintrc.js bundles"
+    "test": "eslint --config ./node_modules/oskari-frontend/.eslintrc.js bundles",
+    "generate-bom": "cyclonedx-bom --include-dev -o frontend-bom.json"
   },
   "repository": {
     "type": "git",
