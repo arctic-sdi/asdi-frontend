@@ -12,9 +12,9 @@
     "@cyclonedx/bom": "^3.10.1"
   },
   "scripts": {
-    "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
-    "build:dev": "node ./node_modules/oskari-frontend/node_modules/webpack/bin/webpack.js --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env.appdef=apps",
-    "start:dev": "node ./node_modules/oskari-frontend/node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./node_modules/oskari-frontend/webpack.config.js --hot --env.appdef=devapp:apps",
+    "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env appdef=apps",
+    "build:dev": "node ./node_modules/oskari-frontend/node_modules/webpack/bin/webpack.js --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env appdef=apps",
+    "start:dev": "node ./node_modules/oskari-frontend/node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./node_modules/oskari-frontend/webpack.config.js --hot --env appdef=devapp:apps",
     "test": "eslint --config ./node_modules/oskari-frontend/.eslintrc.js bundles",
     "generate-bom": "cyclonedx-bom --include-dev -o frontend-bom.json"
   },
