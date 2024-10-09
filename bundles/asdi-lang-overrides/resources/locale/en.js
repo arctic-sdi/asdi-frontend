@@ -1,4 +1,3 @@
-
 Oskari.registerLocalization(
     {
         lang: 'en',
