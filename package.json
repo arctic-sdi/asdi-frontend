@@ -1,12 +1,12 @@
 {
   "name": "asdi-frontend",
-  "version": "1.29.0-dev",
+  "version": "1.29.0",
   "description": "Frontend for Arctic-SDI geoportal based on Oskari. Site visible in geoportal.arctic-sdi.org.",
   "keywords": [
     "Oskari"
   ],
   "dependencies": {
-    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#develop"
+    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#2.14.1"
   },
   "devDependencies": {
     "@cyclonedx/bom": "^3.10.1"
