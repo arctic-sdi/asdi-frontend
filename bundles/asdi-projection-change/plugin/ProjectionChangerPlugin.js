@@ -65,7 +65,10 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
                 url += window.location.pathname;
             }
             url += '?uuid=' + uuid;
-            url += this.getSelectedMapLayersUrlParam();
+            const selectedMapLayersParams = this.getSelectedMapLayersUrlParam();
+            if (selectedMapLayersParams && selectedMapLayersParams.length > 0) {
+                url += selectedMapLayersParams;
+            }
 
             window.location.href = url;
         },
@@ -100,6 +103,7 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
                 el = this.getElement();
             };
             if (!el) return;
+            // eslint-disable-next-line react/no-deprecated
             ReactDOM.render(
                 <MapModuleButton
                     icon={<GlobalOutlined />}
