@@ -1,4 +1,4 @@
-import 'oskari-loader!../../bundles/asdi-lang-overrides/bundle.js';
+import 'oskari-bundle!../../bundles/asdi-lang-overrides';
 
 // These framework bundles have to be imported first
 import 'oskari-bundle!oskari-frontend/bundles/framework/mapfull';
@@ -7,15 +7,13 @@ import 'oskari-loader!oskari-frontend/packages/framework/bundle/ui-components/bu
 import 'oskari-loader!oskari-frontend/packages/framework/bundle/divmanazer/bundle.js';
 
 // Then import mapmodule and rest of the application
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/mapmodule/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/maparcgis/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/wfsvector/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/framework/bundle/ui-components/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/mapwmts/bundle.js';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/mapmodule/map2d_ol';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/maparcgis';
 
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/drawtools/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/toolbar/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/infobox/bundle.js';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/drawtools';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/toolbar';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/infobox';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/userstyle';
 
 import 'oskari-bundle!oskari-frontend/bundles/framework/search';
 import 'oskari-bundle!oskari-frontend/bundles/framework/layerlist';
@@ -28,14 +26,14 @@ import 'oskari-lazy-bundle?mydata!oskari-frontend/bundles/framework/mydata';
 
 import 'oskari-lazy-bundle?publisher2!oskari-frontend/bundles/framework/publisher2';
 import 'oskari-bundle!oskari-frontend/bundles/framework/maplegend';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/layerswipe/bundle.js';
-import 'oskari-loader!oskari-frontend/packages/mapping/ol/userstyle/bundle.js';
+import 'oskari-bundle!oskari-frontend/bundles/mapping/layerswipe';
+
 import 'oskari-bundle!oskari-frontend/bundles/framework/layeranalytics';
 import 'oskari-bundle!oskari-frontend/bundles/framework/timeseries';
 import 'oskari-bundle!oskari-frontend/bundles/framework/guidedtour';
 
-import 'oskari-loader!../../bundles/asdi-login/bundle.js';
-import 'oskari-loader!../../bundles/asdi-projection-change/bundle.js';
+import 'oskari-bundle!../../bundles/asdi-login';
+import 'oskari-bundle!../../bundles/asdi-projection-change';
 import 'oskari-lazy-bundle?featuredata!oskari-frontend/bundles/framework/featuredata';
 
 import 'oskari-lazy-bundle?userguide!oskari-frontend/bundles/framework/userguide';

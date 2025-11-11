@@ -1,3 +1,4 @@
+import './plugin/ProjectionChangerPlugin';
 const UnsupportedLayerSrs = Oskari.clazz.get('Oskari.mapframework.domain.UnsupportedLayerSrs');
 /**
  * @class Oskari.projection.change.instance

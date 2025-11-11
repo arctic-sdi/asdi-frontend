@@ -1,6 +1,6 @@
 import React from 'react';
 import { Message } from 'oskari-ui';
-
+import './Flyout';
 /**
  * @class Oskari.asdi.login.BundleInstance
  */
