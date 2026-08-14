@@ -6,7 +6,7 @@
     "Oskari"
   ],
   "dependencies": {
-    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#develop"
+    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#3.3.0"
   },
   "devDependencies": {
     "@cyclonedx/bom": "^3.10.1",
