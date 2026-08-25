@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@cyclonedx/bom": "^3.10.1",
-    "eslint": "9.37.0"
+    "eslint": "9.39.5"
   },
   "scripts": {
     "build": "webpack --config ./node_modules/oskari-frontend/webpack.config.js --mode production --progress --env appdef=apps",
