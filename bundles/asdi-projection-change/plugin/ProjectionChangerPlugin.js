@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { getReactRoot } from 'oskari-ui/components/window';
 import { MapModuleButton } from 'oskari-frontend/bundles/mapping/mapmodule/MapModuleButton';
 import { GlobalOutlined } from '@ant-design/icons';
 import { showProjectionChangePopup } from './ProjectionChangePopup';
@@ -103,16 +103,14 @@ Oskari.clazz.define('Oskari.projection.change.ProjectionChangerPlugin',
                 el = this.getElement();
             };
             if (!el) return;
-            // eslint-disable-next-line react/no-deprecated
-            ReactDOM.render(
+            getReactRoot(el[0]).render(
                 <MapModuleButton
                     icon={<GlobalOutlined />}
                     iconSize='24px'
                     onClick={() => this.showPopup()}
                     iconActive={!!this.popupControls}
                     title={this._loc.tooltip.tool}
-                />,
-                el[0]
+                />
             );
         },
         createUi: function () {

@@ -11,7 +11,7 @@ const BUNDLE_KEY = 'projection-change';
 const ViewsContainer = styled('div')`
     display: flex;
     flex-direction: row;
-    width: ${props => props.isMobile ? 350: 575}px;
+    width: ${props => props.$isMobile ? 350: 575}px;
     flex-wrap: wrap;
     padding: 20px;
     justify-content: space-between;
@@ -25,15 +25,15 @@ const View = styled('div')`
 `;
 
 const ViewImage = styled('img')`
-    width: ${props => props.isMobile ? 120 : 145}px;
+    width: ${props => props.$isMobile ? 120 : 145}px;
     cursor: pointer;
-    border: ${props => props.active ? '3px solid rgb(12,60,98)' : 'none'};
+    border: ${props => props.$active ? '3px solid rgb(12,60,98)' : 'none'};
     border-radius: 50%;
 `;
 
 const ViewText = styled('span')`
     margin-top: 5px;
-    font-weight: ${props => props.active ? 'bold' : 'normal'};
+    font-weight: ${props => props.$active ? 'bold' : 'normal'};
 `;
 
 const Info = styled('span')`
@@ -53,7 +53,7 @@ const getImageUrl = (srsName) => {
 const checkSupported = (srsName) => {
     const layers = Oskari.getSandbox().getMap().getLayers();
     const unsupportedLayers = layers.filter((layer) => {
-        return !layer.isSupported(srsName);
+        return !layer.isSupportedSrs(srsName);
     });
     return unsupportedLayers;
 }
@@ -62,14 +62,14 @@ const PopupContent = ({ views, changeView, currentView, showDescription }) => {
     const isMobile = Oskari.util.isMobile();
     return (
         <ThemeProvider>
-            <ViewsContainer isMobile={isMobile}>
+            <ViewsContainer $isMobile={isMobile}>
                 {views?.map(view => (
                     <View key={view.srsName}>
-                        <ViewImage isMobile={isMobile}
+                        <ViewImage $isMobile={isMobile}
                             onClick={() => changeView(view.uuid, view.srsName)}
                             src={getImageUrl(view.srsName)}
-                            active={currentView === view.srsName} />
-                        <ViewText active={currentView === view.srsName}>
+                            $active={currentView === view.srsName} />
+                        <ViewText $active={currentView === view.srsName}>
                             <Message bundleKey={BUNDLE_KEY} messageKey={`projectionCode.${view.srsName}.displayName`} />
                             <Info
                                 onClick={() => showDescription(getImageUrl(view.srsName), view.srsName)}
